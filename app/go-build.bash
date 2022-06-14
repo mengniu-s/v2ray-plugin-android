@@ -12,6 +12,7 @@ ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 OUT_DIR="$ROOT/build/go"
 
 cd "$ROOT/src/main/go/v2ray-plugin"
+go mod init
 BIN="libv2ray.so"
 for i in "${!ABIS[@]}"; do
     ABI="${ABIS[$i]}"
