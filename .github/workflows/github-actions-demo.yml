@@ -30,6 +30,10 @@ jobs:
        run: chmod +x gradlew
      - name: Build APK
        run: bash ./gradlew assembleDebug --stacktrace
+     - name: list dir
+       run: ls
+     - name: find APK
+       run: find . -name "*.apk"
      - name: Upload APK
        uses: actions/upload-artifact@v1
        with:
