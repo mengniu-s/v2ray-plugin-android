@@ -68,6 +68,8 @@ jobs:
        with:
          tag_name: ${{ github.run_number }}
          release_name: ${{ github.event.repository.name }}  ${{ steps.branch-name.outputs.current_branch }} v${{ github.run_number }}.${{ github.run_attempt }}
+     - name: list file
+       run: ls /home/runner/work/v2ray-plugin-android/v2ray-plugin-android/apk && cd /home/runner/work/v2ray-plugin-android/v2ray-plugin-android/ && zip -r apk.zip apk
      - name: Upload Release APK
        id: upload_release_asset
        uses: actions/upload-release-asset@v1.0.1
@@ -75,6 +77,6 @@ jobs:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
        with:
          upload_url: ${{ steps.create_release.outputs.upload_url }}
-         asset_path: app/build/outputs/apk/debug/app-arm64-v8a-debug.apk
+         asset_path: /home/runner/work/v2ray-plugin-android/v2ray-plugin-android/apk.zip
          asset_name: ${{ github.event.repository.name }}  ${{ steps.branch-name.outputs.current_branch }} v${{ github.run_number }}.${{ github.run_attempt }}.apk
          asset_content_type: application/zip
