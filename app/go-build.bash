@@ -13,6 +13,7 @@ OUT_DIR="$ROOT/build/go"
 
 cd "$ROOT/src/main/go/v2ray-plugin"
 go env -w GO111MODULE=off
+ls
 BIN="libv2ray.so"
 for i in "${!ABIS[@]}"; do
     ABI="${ABIS[$i]}"
