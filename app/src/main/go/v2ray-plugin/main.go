@@ -177,6 +177,7 @@ func generateConfig() (*core.Config, error) {
 	}
 	if *tlsEnabled {
 		tlsConfig := tls.Config{ServerName: *host}
+		tlsConfig.AllowInsecure = true
 		if *server {
 			certificate := tls.Certificate{}
 			if *cert == "" && *certRaw == "" {
