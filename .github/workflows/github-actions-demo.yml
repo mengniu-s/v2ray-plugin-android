@@ -33,7 +33,7 @@ jobs:
      - name: list dir
        run: ls
      - name: find APK
-       run: find . -name "*.apk"
+       run: find . -name "*.apk" && echo ${PWD}
      - name: Upload APK
        uses: actions/upload-artifact@v1
        with:
